@@ -1,49 +1,54 @@
-AI Ethics Checker (Prototype)
+# AI Ethics Checker (Prototype)
 
-Scores range from 0–10.
-Penalties reflect heuristic risk severity.
-This tool is intended as a prototype, not a legal compliance engine.
+**Scores range from 0–10.**  
+**Penalties reflect heuristic risk severity.**  
+**This tool is intended as a prototype, not a legal compliance engine.**
 
-Overview
+---
 
-The AI Ethics Checker is a lightweight, rule-based prototype that evaluates datasets and metadata for potential ethical risks in AI systems.
-It focuses on three key dimensions:
+## Overview
 
-Fairness – Checks for imbalance across sensitive attributes (e.g., gender, age, race, caste).
+The **AI Ethics Checker** is a lightweight, rule-based prototype that evaluates datasets and metadata for potential ethical risks in AI systems.  
+It focuses on three key dimensions:  
 
-Transparency – Verifies availability of essential documentation for model interpretability.
+1. **Fairness** – Checks for imbalance across sensitive attributes (e.g., gender, age, race, caste).  
+2. **Transparency** – Verifies availability of essential documentation for model interpretability.  
+3. **Accountability** – Assesses responsibility attribution and operational traceability.  
 
-Accountability – Assesses responsibility attribution and operational traceability.
+> This tool is meant for **educational and early-stage auditing purposes**.
 
-This tool is meant for educational and early-stage auditing purposes.
+---
 
-Folder Structure
+## Folder Structure
+
 ai-ethics-checker/
 ├── src/
-│   └── ai_ethics_checker.py     # Main code
+│ └── ai_ethics_checker.py # Main code
 ├── results/
-│   └── sample_output.json       # Sample output from running the code
-└── README.md                    # Project description
+│ └── sample_output.json # Sample output from running the code
+└── README.md # Project description
 
-How to Run
+---
 
-Install dependencies (only pandas is required):
+## How to Run
 
+1. **Install dependencies** (only pandas is required):
+```bash
 pip install pandas
-
-
-Run the code:
-
 python src/ai_ethics_checker.py
+```
+---
 
-
-View the output:
+## View the output
 
 The report will be printed in the console.
 
 A sample output is also available in results/sample_output.json.
 
-Sample Output
+---
+
+## Sample Output
+
 {
   "Fairness": {
     "score": 4,
@@ -68,16 +73,13 @@ Sample Output
   }
 }
 
-Notes
+---
+
+## Notes
 
 The project is self-contained, so no external dataset is required.
-
 The scores are heuristic-based, meant for demonstration and educational purposes.
-
 Future improvements could include:
-
-Real datasets in data/ folder
-
-More detailed fairness checks
-
-Visualization of results
+1. Real datasets in a data/ folder
+2. More detailed fairness checks
+3. Visualization of results
