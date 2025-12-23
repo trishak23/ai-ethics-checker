@@ -1,83 +1,83 @@
-# AI Ethics Checker (Prototype)
+AI Ethics Checker (Prototype)
 
-A lightweight, rule-based prototype for evaluating ethical risks in AI systems using
-interpretable heuristics.
+Scores range from 0–10.
+Penalties reflect heuristic risk severity.
+This tool is intended as a prototype, not a legal compliance engine.
 
-This tool is designed for **educational, academic, and early-stage auditing purposes**
-and is **not a legal or regulatory compliance engine**.
+Overview
 
----
+The AI Ethics Checker is a lightweight, rule-based prototype that evaluates datasets and metadata for potential ethical risks in AI systems.
+It focuses on three key dimensions:
 
-## Overview
+Fairness – Checks for imbalance across sensitive attributes (e.g., gender, age, race, caste).
 
-The AI Ethics Checker evaluates datasets and metadata across three ethical dimensions:
+Transparency – Verifies availability of essential documentation for model interpretability.
 
-- **Fairness** – Detects imbalance across sensitive attributes  
-- **Transparency** – Checks availability of essential documentation  
-- **Accountability** – Assesses responsibility and traceability mechanisms  
+Accountability – Assesses responsibility attribution and operational traceability.
 
-Each dimension is scored on a **0–10 scale**, and an overall ethics score is computed.
+This tool is meant for educational and early-stage auditing purposes.
 
----
-
-## Key Features
-
-- Rule-based and interpretable scoring  
-- No model training required  
-- Dataset + metadata driven evaluation  
-- Suitable for research, teaching, and prototyping  
-
----
-
-## Repository Structure
-
+Folder Structure
 ai-ethics-checker/
 ├── src/
-│ └── ai_ethics_checker.py
-├── examples/
-│ └── sample_run.py
-├── data/
-│ └── sample_dataset.csv
+│   └── ai_ethics_checker.py     # Main code
 ├── results/
-│ └── sample_output.json
-├── requirements.txt
-└── README.md
+│   └── sample_output.json       # Sample output from running the code
+└── README.md                    # Project description
+
+How to Run
+
+Install dependencies (only pandas is required):
+
+pip install pandas
 
 
----
+Run the code:
 
-## Installation
+python src/ai_ethics_checker.py
 
-Install required dependencies using:
 
-```bash
-pip install -r requirements.txt
-python examples/sample_run.py
-```
----
+View the output:
 
-## Expected Output :
+The report will be printed in the console.
 
+A sample output is also available in results/sample_output.json.
+
+Sample Output
 {
   "Fairness": {
-    "score": 7,
-    "flags": ["Imbalance detected in gender"]
+    "score": 4,
+    "flags": ["Potential distribution skew in age", "Imbalance detected in gender"],
+    "explanation": "Evaluates imbalance across sensitive attributes using distribution-based heuristics."
   },
   "Transparency": {
-    "score": 4,
-    "missing": ["model_description", "intended_use"]
+    "score": 7,
+    "missing": ["model_description", "intended_use"],
+    "explanation": "Checks availability of essential documentation for model interpretability."
   },
   "Accountability": {
     "score": 5,
-    "missing": ["logging"]
+    "missing": ["logging"],
+    "explanation": "Assesses responsibility attribution and operational traceability."
   },
-  "Overall Score": 5.33
+  "Overall Score": 5.333333333333333,
+  "Meta": {
+    "tool_version": "0.1",
+    "evaluation_type": "Rule-based prototype",
+    "intended_audience": "Educational and early-stage auditing"
+  }
 }
 
----
+Notes
 
-## Disclaimer
+The project is self-contained, so no external dataset is required.
 
-This prototype uses heuristic, rule-based checks and simplified assumptions.
-It is intended for educational and early-stage research use only and should not
-be considered a substitute for formal audits or regulatory compliance tools.
+The scores are heuristic-based, meant for demonstration and educational purposes.
+
+Future improvements could include:
+
+Real datasets in data/ folder
+
+More detailed fairness checks
+
+Visualization of results
